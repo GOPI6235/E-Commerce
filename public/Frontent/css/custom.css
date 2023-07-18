@@ -1,0 +1,80 @@
+*{
+    font-family: 'Mukta', sans-serif;
+}
+
+.btn-google {
+    border:1px solid#dd4b39;
+    color: rgb(0, 0, 0);
+    margin-top: 15px;
+    margin-left: 50px;
+
+}
+.btn-google:hover{
+    background-color: #dd4b39;
+    color: beige;
+}
+
+.btn-facebook {
+    border: 2px solid#3b5998;
+    color: #080707;
+    margin-top: 15px;
+    margin-left: 50px;
+
+}
+.btn-facebook:hover{
+    background-color: #3b5998;
+    color: beige;
+}
+
+.order-details label{
+    font-size: 15px;
+    font-weight: 700;
+   
+}
+
+.order-details div{
+    font-size: 18px;
+    padding: 5px !important;
+}
+
+.small-badge {
+    border-radius: 50%;
+    font-size: 0.4rem;
+}
+
+.badge-top {
+    position: relative;
+    top: -8px; /* Adjust the top value as needed to position the badge */
+}
+
+/* rating */
+.rating-css div {
+    color: #ffe400;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 0;
+  }
+  .rating-css input {
+    display: none;
+  }
+  .rating-css input + label {
+    font-size: 60px;
+    text-shadow: 1px 1px 0 #8f8420;
+    cursor: pointer;
+  }
+  .rating-css input:checked + label ~ label {
+    color: #b4afaf;
+  }
+  .rating-css label:active {
+    transform: scale(0.8);
+    transition: 0.3s ease;
+  }
+
+/* End of Star Rating */
+
+.checked{
+    color: #d4c600;
+}
