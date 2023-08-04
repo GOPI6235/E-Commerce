@@ -20,13 +20,15 @@ use App\Http\Controllers\Frontend\RazorpayController;
 // });
 
 Route::get('/',[App\Http\Controllers\Frontend\FrontendController::class,'index']);
-
 Route::get('category',[App\Http\Controllers\Frontend\FrontendController::class,'category']);
 Route::get('view-category/{slug}',[App\Http\Controllers\Frontend\FrontendController::class,'viewcategory']);
-Route::get('category/{cate_slug}/{prod_slug}',[App\Http\Controllers\Frontend\FrontendController::class,'productview']);
+Route::get('category/{cate_slug}/{prod_slug}',[App\Http\Controllers\Frontend\FrontendController::class,'productview'])->name('product');
+Route::get('/product/{slug}', [App\Http\Controllers\Frontend\ProductController::class,'show'])->name('product.show');
 
 Route::get('product-list',[App\Http\Controllers\Frontend\FrontendController::class,'productlistajax']);
 Route::post('searchproduct',[App\Http\Controllers\Frontend\FrontendController::class,'searchproduct']);
+Route::get('/product-quick-view/{id}', [App\Http\Controllers\Frontend\ProductController::class, 'quickView']);
+
 
 Auth::routes();
 
@@ -40,6 +42,11 @@ Route::post('/add-to-cart',[App\Http\Controllers\Frontend\CartController::class,
 Route::post('delete-cart-item',[App\Http\Controllers\Frontend\CartController::class,'deleteproduct']);
 Route::post('update-cart',[App\Http\Controllers\Frontend\CartController::class,'updatecart']);
 
+Route::post('/add-to-wishlist', [App\Http\Controllers\Frontend\WishlistController::class, 'add']);
+Route::post('/delete-wishlist-item', [App\Http\Controllers\Frontend\WishlistController::class, 'delete']);
+
+
+
 Route::middleware(['auth'])->group(function(){
     Route::get('cart',[App\Http\Controllers\Frontend\CartController::class,'viewcart']);
     Route::get('checkout',[App\Http\Controllers\Frontend\CheckoutController::class,'index']);
@@ -51,8 +58,9 @@ Route::middleware(['auth'])->group(function(){
     // Route::post('proceed-to-pay',[App\Http\Controllers\Frontend\CheckoutController::class,'razorpaycheck']);
 
     Route::post('razorpay-payment',[RazorpayController::class,'store'])->name('razorpay.payment.store');
-
     Route::post('add-rating',[App\Http\Controllers\Frontend\RatingController::class,'add']);
+
+    Route::get('wishlist', [App\Http\Controllers\Frontend\WishlistController::class,'index']);
     
 });
 
@@ -77,7 +85,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('delete-subcategory/{id}',[App\Http\Controllers\Admin\SubCategoryController::class,'destroy']);
     //product
     Route::get('products',[App\Http\Controllers\Admin\ProductController::class,'index']);
-    Route::get('add-products',[App\Http\Controllers\Admin\ProductController::class,'add']);
+    Route::get('add-product',[App\Http\Controllers\Admin\ProductController::class,'add']);
     Route::post('insert-product',[App\Http\Controllers\Admin\ProductController::class,'insert']);
     //product Edit and Delete
     Route::get('edit-product/{id}',[App\Http\Controllers\Admin\ProductController::class,'edit']);

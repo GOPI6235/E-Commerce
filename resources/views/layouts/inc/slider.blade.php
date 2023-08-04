@@ -1,13 +1,13 @@
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{{ asset('assets/images/slider3.png') }}" class="d-block w-100" style="height: 500px" alt="...">
+        <img src="{{ asset('assets/images/slider3.png') }}" class="d-block w-100" style="height: 400px" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('assets/images/slider2.png') }}" class="d-block w-100" style="height: 500px" alt="...">
+        <img src="{{ asset('assets/images/slider2.png') }}" class="d-block w-100" style="height: 400px" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('assets/images/slider1.png') }}" class="d-block w-100" style="height: 500px" alt="...">
+        <img src="{{ asset('assets/images/slider1.png') }}" class="d-block w-100" style="height: 400px" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">

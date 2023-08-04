@@ -28,16 +28,26 @@
                 @foreach ($cartItems as $item)
                     <div class="row product_data">
                         <div class="col-md-2 mt-2 text-center">
-                            <img src="{{ asset('assets/upload/products/' . $item->products->image) }}" height="70px"
-                                width="70px" alt="image here">
+                            @if ($item->product)
+                                @if ($item->product)
+                                <h6>{{ $item->product->category->name }}</h6>
+                                @else
+                                    <h6>Category Not Found</h6>
+                                @endif
+                            @endif
                         </div>
-                        <div class="col-md-3 mt-4 text-center">
+                        <div class="col-md-2 mt-2 text-center">
+                            <a href="{{ url('product/'.$item->products->slug) }}">
+                                <img src="{{ asset('assets/upload/products/' . $item->product->image) }}" height="70px" width="70px" alt="image here">
+                            </a>
+                        </div>
+                        <div class="col-md-2 mt-4 text-center">
                             <h6>{{ $item->products->name }}</h6>
                         </div>
                         <div class="col-md-2 mt-4 ">
                             <h6> Rs {{ $item->products->selling_price }}</h6>
                         </div>
-                        <div class="col-md-3 ">
+                        <div class="col-md-2 ">
                             <input type="hidden" class="prod_id" value="{{ $item->prod_id }}">
                             @if ($item->products->qty >= $item->prod_qty)
                                 <label for="Quantity">Quantity</label>
@@ -53,7 +63,7 @@
                             @endif
                         </div>
                         <div class="col-md-2">
-                            <button class="btn mt-3 delete-cart-item"><i class="bi bi-trash3"></i></button>
+                            <button class="btn mt-2 delete-cart-item"><i class="bi bi-trash3"></i></button>
                         </div>
                     </div>
                 @endforeach
@@ -61,7 +71,7 @@
 
             <div class="card-footer">
                 <h6>Totel Price = {{ $total }}
-                    <a href="{{ url('checkout') }}" class="btn btn-outline-success float-end">proceed ro checkout</a
+                    <a href="{{ url('checkout') }}" class="btn btn-outline-success float-end">proceed to checkout</a
                         href="{{ url('checkout') }}">
                 </h6>
             </div>

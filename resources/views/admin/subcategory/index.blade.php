@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-header card-header-primary">
-        <h3>Sub-Categories <a class="btn btn-warning" style="margin-left: 950px" href="{{ url('add-subcategory') }}"><h6>Add SubCategory</h6></a></h3>
+        <h3>Sub-Categories <a class="btn btn-warning float-right" href="{{ url('add-subcategory') }}"><h6>Add SubCategory</h6></a></h3>
         
     </div>
     <div class="card-body">

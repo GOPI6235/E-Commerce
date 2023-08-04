@@ -1,0 +1,51 @@
+/* Quick View Modal */
+#quickViewModal {
+    font-family: Arial, sans-serif;
+}
+
+#quickViewModal .modal-dialog {
+    max-width: 800px;
+}
+
+#quickViewModal .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#quickViewModal .modal-title {
+    color: #343a40;
+    font-size: 1.25rem;
+}
+
+#quickViewModal .modal-body {
+    padding: 20px;
+}
+
+#quickViewModal img.img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+#quickViewModal p {
+    color: #6c757d;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#quickViewModal .modal-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+#quickViewModal .btn-secondary {
+    color: #ffffff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+#quickViewModal .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}

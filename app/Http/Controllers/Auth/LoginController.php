@@ -34,7 +34,7 @@ class LoginController extends Controller
     protected function authenticated()
     {
         if (Auth::user()->role_as == '1') {
-            return response()->json(['message' => 'Welcome to your dashboard'], 200);
+            return redirect('/dashboard')->with('message', 'Welcome to your dashboard');
         } elseif (Auth::user()->role_as == '0') {
             return response()->json(['message' => 'Logged in successfully'], 200);
         }  

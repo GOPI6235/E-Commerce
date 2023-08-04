@@ -16,12 +16,12 @@
                             <option value="">{{ $products->category->name }}</option>
                         </select>
                     </div>
-                    <div class="col-md-12 mb-3">
+                    {{-- <div class="col-md-12 mb-3">
                         <label for="">Sub-Category</label>
                         <select class="form-select">
                             <option value="">{{ $products->subcategory->name }}</option>
                         </select>
-                    </div>
+                    </div> --}}
                     <div class="col-md-6 mb-1">
                         <label for="">Name</label>
                         <input type="text" value="{{ $products->name }}" class="form-control" name="name">

@@ -17,6 +17,8 @@
     <link href="{{ asset('Frontent/css/bootstrap5.css') }}" rel="stylesheet" />
     <link href="{{ asset('Frontent/css/matirialize.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('Frontent/css/custom.css') }}" rel="stylesheet" />
+    <link href="{{ asset('Frontent/css/owl.carousel.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('Frontent/css/owl.theme.default.min.css') }}" rel="stylesheet" />
 
     {{-- Google fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,18 +30,45 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('Frontent/js/custom.js') }}"></script>
     <script src="{{ asset('Frontent/js/checkout.js') }}"></script>
 
     
+    
     <style>
+        body{
+            background-color: #b7ddfc
+        }
         a {
             text-decoration: none !important;
             color: black;
             font-size: 20px;
         }
+        .dropdowns {
+          position: relative;
+          display: inline-block;
+        }
+        
+        .dropdowns-content {
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 200px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          padding: 15px 105px;
+          z-index: 1;
+        }
+        
+        .dropdowns:hover .dropdowns-content {
+          display: block;
+        }
     </style>
+
 
 </head>
 
@@ -50,16 +79,13 @@
         @yield('content')
     </div>
 
-{{-- 
-    <script src="{{ asset('Frontent/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('Frontent/js/matirialize.min.js') }}"></script>
-   --}}
-
 
     
 
     {{-- search product --}}
     
+    
+    <script src="{{ asset('Frontent/js/owl.carousel.min.js') }}"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
 

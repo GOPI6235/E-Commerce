@@ -4,8 +4,9 @@
         <form action="{{ url('searchproduct') }}" method="POST">
             @csrf
             <div class="input-group">
-                <input type="search" name="product_name" class="form-control" id="search_product" placeholder="search products" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <button class="input-group-text" ><i class="fa fa-search"></i></button>
+                <input type="search" name="product_name" class="form-control" id="search_product"
+                    placeholder="search products" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <button class="input-group-text"><i class="fa fa-search"></i></button>
             </div>
         </form>
 
@@ -17,17 +18,36 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a href="{{ url('/') }}" class="nav-link active" aria-current="page">Home</a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ url('category') }}" class="nav-link">Category</a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ url('cart') }}" class="nav-link">Cart 
-                    <span class="badge badge-pill bg-success badge-sm badge-top cart-count">0</span>
-                </a>
-              </li>
+                <li class="nav-item">
+                    <a href="{{ url('/') }}" class="nav-link active" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdowns">
+                        <a href="{{ url('category') }}" class="nav-link">Category</a>
+                        <div class="dropdowns-content">
+                            {{-- @foreach ($category as $cate)
+                            <p><a href="">{{ $cate->name  }}</a></p>
+                            @endforeach --}}
+                        
+                        </div>
+                    </div>
+
+        
+                    
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('my-orders') }}" class="nav-link">My orders</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('wishlist') }}" class="nav-link">Wishlist
+                        <span class="badge badge-pill bg-success badge-sm badge-top wishlist-count">0</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('cart') }}" class="nav-link">Cart
+                        <span class="badge badge-pill bg-success badge-sm badge-top cart-count">0</span>
+                    </a>
+                </li>
 
                 @guest
                     @if (Route::has('login'))
@@ -59,7 +79,17 @@
                                 </a>
                             </li>
 
-                            <li>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+
+                            {{-- <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                        document.getElementById('logout-form').submit();">
@@ -69,7 +99,7 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-                            </li>
+                            </li> --}}
                         </ul>
                     </li>
                 @endguest

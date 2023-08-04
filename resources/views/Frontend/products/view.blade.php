@@ -19,15 +19,15 @@
                             <div class="star-icon">
                                 @if ($user_rating)
                                     @for ($i = 1; $i <= $user_rating->stars_rated; $i++)
-                                        <input type="radio" value="{{ $i }}" name="product_rating" checked id="rating{{ $i }}">
+                                        <input type="radio" value="{{ $i }}" name="product_rating" checked
+                                            id="rating{{ $i }}">
                                         <label for="rating{{ $i }}" class="fa fa-star"></label>
                                     @endfor
-                                    @for ($j = $user_rating->stars_rated+1; $j <= 5;$j++)
-                                        <input type="radio" value="{{ $j }}" name="product_rating" id="rating{{ $j }}">
-                                        <label for="rating{{ $j }}" class="fa fa-star"></label>   
+                                    @for ($j = $user_rating->stars_rated + 1; $j <= 5; $j++)
+                                        <input type="radio" value="{{ $j }}" name="product_rating"
+                                            id="rating{{ $j }}">
+                                        <label for="rating{{ $j }}" class="fa fa-star"></label>
                                     @endfor
-
-                                    
                                 @else
                                     <input type="radio" value="1" name="product_rating" checked id="rating1">
                                     <label for="rating1" class="fa fa-star"></label>
@@ -51,18 +51,17 @@
             </div>
         </div>
     </div>
-    </div>
 
     <div class="py-3 mb-4 shadow-sm bg-warning border-top">
         <div class="container">
             <h6 class="mb-0">
                 <a href="{{ url('category') }}">
                     Collections
-                </a> / 
-                <a href="{{ 'category/' . $products->category->slug }}">
-                    {{ $products->category->name }}
+                </a> /
+                <a href="{{-- 'category/'.$products->category->slug --}}">
+                    {{-- $products->category->name --}}
                 </a>/
-                <a href="{{ url('category/' . $products->category->slug . '/' . $products->slug) }}">
+                <a href="{{-- url('category/'.$products->category->slug.'/'.$products->slug) --}}">
                     {{ $products->name }}
                 </a>
             </h6>
@@ -87,8 +86,8 @@
                         </h2>
 
                         <hr>
-                        <label class="me-3">Original Price: <s>Rs {{ $products->original_price }}</s></label>
-                        <label class="fw-bold">Selling Price: Rs {{ $products->selling_price }}</label>
+                        <label class="me-3">Original Price: <s>&#8377 {{ $products->original_price }}</s></label>
+                        <label class="fw-bold">Selling Price: &#8377 {{ $products->selling_price }}</label>
                         {{-- Ratings --}}
                         @php $ratenum = number_format($rating_value) @endphp
                         <div class="reatings">
@@ -106,7 +105,7 @@
                                 @endif
                             </span>
                         </div>
-                        
+
                         <p class="mt-3">
                             {!! $products->small_description !!}
                         </p>
@@ -121,27 +120,27 @@
                                 <label for="Quantity">Quantity</label>
                                 <div class="input-group text-center mb-3" style="width: 130px">
                                     <button class="input-group-text decrement-btn">-</button>
-                                    <input type="text" name="quantity" value="1"
+                                    <input type="text" name="quantity" value="{{ $product_qty ?? 1 }}"
                                         class="form-control qty-input text-center">
                                     <button class="input-group-text increment-btn">+</button>
                                 </div>
                             </div>
                             <div class="col-md-9">
                                 <br />
-                                @if ($products->qty > 0)
-                                    <button type="button" class="btn btn-primary me-3 float-start addToCartbtn">Add To
-                                        Cart
-                                        <i class="bi bi-cart4"></i></button>
+                                @if ($isInCart)
+                                    <a href="{{ url('cart') }}" class="btn btn-primary me-3 float-start">View Cart <i class="bi bi-cart4"></i>
+                                    </a>
+                                @elseif ($products->qty > 0)
+                                    <button type="button" class="btn btn-primary me-3 float-start addToCartbtn">Add To Cart <i class="bi bi-cart4"></i></button>
                                 @endif
-                                <button type="button" class="btn btn-success me-3 float-start">Add To Wishlist <i
-                                        class="bi bi-heart-fill"></i></button>
+                                <button type="button" class="btn btn-success me-3 addToWishlist float-start">Add To Wishlist <i class="bi bi-heart-fill"></i></button>
 
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12">
-                    
+
                     <h3>Description</h3>
                     <p class="mt-3">
                         {!! $products->description !!}
@@ -149,12 +148,11 @@
                 </div>
                 <hr>
                 <div class="col-md-12">
-                    <button type="button" class="btn btn-link" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
+                    <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Ratings <i class="fa fa-star"></i>
                     </button>
                 </div>
-                
+
             </div>
         </div>
 
